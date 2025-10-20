@@ -1,0 +1,55 @@
+PUNTO 3 - ANALIZADOR ASCENDENTE (GRAMÁTICA LL(1))
+--------------------------------------------------
+
+Gramática original:
+E → E + T | T
+T → T * F | F
+F → ( E ) | id
+
+Transformación LL(1):
+E  → T E'
+E' → + T E' | ε
+T  → F T'
+T' → * F T' | ε
+F  → ( E ) | id
+
+
+--------------------------------------------------
+CONJUNTOS FIRST
+--------------------------------------------------
+FIRST(E)  = { '(', id }
+FIRST(E') = { '+', ε }
+FIRST(T)  = { '(', id }
+FIRST(T') = { '*', ε }
+FIRST(F)  = { '(', id }
+
+
+--------------------------------------------------
+CONJUNTOS FOLLOW
+--------------------------------------------------
+FOLLOW(E)  = { ')', $ }
+FOLLOW(E') = { ')', $ }
+FOLLOW(T)  = { '+', ')', $ }
+FOLLOW(T') = { '+', ')', $ }
+FOLLOW(F)  = { '*', '+', ')', $ }
+
+
+--------------------------------------------------
+CONJUNTOS DE PREDICCIÓN
+--------------------------------------------------
+E  → T E'      => { '(', id }
+E' → + T E'    => { '+' }
+E' → ε         => { ')', $ }
+T  → F T'      => { '(', id }
+T' → * F T'    => { '*' }
+T' → ε         => { '+', ')', $ }
+F  → ( E )     => { '(' }
+F  → id        => { id }
+
+
+--------------------------------------------------
+CONCLUSIÓN
+--------------------------------------------------
+Los conjuntos FIRST, FOLLOW y PREDICCIÓN permiten construir una tabla LL(1)
+sin ambigüedad. La gramática transformada es adecuada para un analizador
+sintáctico predictivo o ascendente basado en pila.

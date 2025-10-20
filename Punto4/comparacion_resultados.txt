@@ -1,0 +1,45 @@
+==========================================================================================
+COMPARACIÓN DE RENDIMIENTO: CYK vs PARSER PREDICTIVO
+==========================================================================================
+
+Configuración: 3 repeticiones por tamaño
+
+------------------------------------------------------------------------------------------
+Tamaño     CYK (ms)        Predictivo (ms)    Ratio        Diferencia
+------------------------------------------------------------------------------------------
+5          0.231142        0.003687           62.69       x +0.227454 ms
+10         1.816772        0.005581           325.55      x +1.811191 ms
+20         15.157783       0.006672           2271.74     x +15.151111 ms
+40         114.245286      0.015032           7599.97     x +114.230253 ms
+------------------------------------------------------------------------------------------
+
+==========================================================================================
+ANÁLISIS DE RESULTADOS
+==========================================================================================
+
+ESTADÍSTICAS:
+  • Ratio promedio (CYK/Predictivo): 2564.98x más lento
+  • Ratio máximo: 7599.97x (tamaño 40)
+  • Ratio mínimo: 62.69x (tamaño 5)
+
+COMPLEJIDAD TEÓRICA:
+  • CYK: O(n³) - Crece cúbicamente
+  • Parser Predictivo: O(n) - Crece linealmente
+
+VERIFICACIÓN EXPERIMENTAL:
+  • Factor de crecimiento de tamaño: 8.00x
+  • Factor de crecimiento tiempo CYK: 494.27x
+  • Factor teórico O(n³): 512.00x
+  • El CYK confirma crecimiento cúbico
+
+CONCLUSIONES:
+  1. El parser predictivo es 2565x más rápido en promedio
+  2. Para tamaño 40, CYK es 7600x más lento
+  3. La diferencia crece exponencialmente con el tamaño de entrada
+  4. Para gramáticas LL(1), el parser predictivo es claramente superior
+  5. CYK solo es útil para gramáticas ambiguas o no-deterministas
+
+RECOMENDACIÓN:
+  Para el lenguaje DataLang (gramática LL(1) determinista):
+  → Usar PARSER PREDICTIVO por su eficiencia O(n)
+==========================================================================================
