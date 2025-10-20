@@ -22,40 +22,6 @@ Se desarrollan y prueban **cinco enfoques distintos**:
 
 ---
 
-## 🧩 Estructura del proyecto
-
-```
-
-Parcial2/
-│
-├── Punto1/
-│   └── DataLang.g4                  # Gramática ANTLR para operaciones CRUD
-│
-├── Punto2/
-│   ├── src/
-│   │   └── run_datalang.py          # Script ejecutor del parser
-│   ├── tests/
-│   │   └── test1.txt                # Archivo con ejemplos CRUD
-│   └── antlr/
-│       └── DataLang/                # Archivos generados por ANTLR
-│
-├── Punto3/
-│   ├── ascendente.py                # Analizador sintáctico ascendente por pila
-│   └── conjuntos.txt                # Cálculos de PRIMEROS, SIGUIENTES y PREDICCIÓN
-│
-├── Punto4/
-│   ├── benchmark_cyk.py             # Implementación y comparación CYK vs Predictivo
-│   └── benchmark_cyk_predictive.csv # Resultados de rendimiento
-│
-├── Punto5/
-│   └── parser_emparejamiento.py     # Implementación del parser recursivo con backtracking
-│
-└── README.md                        # Este archivo
-
-````
-
----
-
 ## Punto 1 – Diseño de la gramática CRUD
 
 **Objetivo:** Definir una gramática libre de contexto que modele un lenguaje capaz de realizar operaciones **CRUD** en una base de datos.
