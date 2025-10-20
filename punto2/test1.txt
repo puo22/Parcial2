@@ -1,0 +1,4 @@
+build table empleados with (id:number, nombre:text, activo:bool);
+get from empleados where activo = true;
+update empleados set nombre = "Paula" where id = 1;
+erase from empleados where activo = false;
